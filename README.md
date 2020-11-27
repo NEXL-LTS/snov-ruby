@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/NEXL-LTS/snov-ruby.svg?branch=main)](https://travis-ci.org/NEXL-LTS/snov-ruby)
+
 ## Installation
 
 Add this line to your application's Gemfile:
