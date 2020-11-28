@@ -1,0 +1,75 @@
+{
+    "success": true,
+    "data": [
+      {
+        "id": "xusD3-T_K5IktGoaa8Jc8A==",
+        "name": "Gavin Vanrooyen",
+        "firstName": "Gavin",
+        "lastName": "Vanrooyen",
+        "industry": "Entertainment",
+        "country": "United States",
+        "locality": "Greater Atlanta Area",
+        "social": [
+          {
+            "link": "https:\/\/www.linkedin.com\/in\/gavin-vanrooyen-809073755\/",
+            "type": "linkedIn"
+          }
+        ],
+        "lastUpdateDate": {
+          "date": "2019-09-11 12:37:58.000000",
+          "timezone_type": 3,
+          "timezone": "UTC"
+        },
+        "currentJob": [
+          {
+            "companyName": "Octagon",
+            "position": "Senior Brand Director",
+            "socialLink": "https:\/\/www.linkedin.com\/company\/659333",
+            "site": "http:\/\/octagon.com",
+            "locality": "United States",
+            "state": null,
+            "city": null,
+            "street": null,
+            "street2": null,
+            "postal": null,
+            "founded": null,
+            "startDate": "2018-07-31",
+            "endDate": null,
+            "size": "1-10",
+            "industry": "Entertainment",
+            "companyType": "Public Company",
+            "country": "United States"
+          }
+        ],
+        "previousJob": [
+          {
+            "companyName": "UPS",
+            "position": "Manager, Sponsorships and Events",
+            "socialLink": "https:\/\/www.linkedin.com\/company\/1523574",
+            "site": "http:\/\/www.ups.com\/",
+            "locality": "United States",
+            "state": "GA",
+            "city": "Atlanta",
+            "street": "55 Glenlake Parkway, NE",
+            "street2": null,
+            "postal": "30328",
+            "founded": "1907",
+            "startDate": null,
+            "endDate": null,
+            "size": "10001+",
+            "industry": "Logistics and Supply Chain",
+            "companyType": "Public Company",
+            "country": "United States"
+          }
+        ],
+        "lists": [
+          {
+            "id": 1250344,
+            "name": "People List"
+          }
+        ],
+        "campaigns": []
+      }
+    ]
+  }
+  
