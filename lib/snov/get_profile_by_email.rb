@@ -1,10 +1,7 @@
 require 'active_support/core_ext/array'
-require_relative 'types/date_details'
 
 module Snov
-  class GetProspectsByEmail
-    include Enumerable
-
+  class GetProfileByEmail
     attr_reader :client, :email
 
     def initialize(email:, client: Snov.client)
@@ -16,14 +13,24 @@ module Snov
       prospects.each(&block)
     end
 
-    def prospects
-      @prospects ||= raw_result.fetch('data', []).map do |result|
-        ProspectResult.new(result)
+    def prospect
+      @prospect ||= ProspectResult.new(raw_result)
+    end
+
+    def method_missing(method_name, *arguments, &block)
+      if prospect.respond_to?(method_name)
+        prospect.public_send(method_name, *arguments, &block)
+      else
+        super
       end
     end
 
+    def respond_to_missing?(method_name, include_private = false)
+      prospect.respond_to?(method_name) || super
+    end
+
     def raw_result
-      @raw_result ||= client.post("/v1/get-prospects-by-email",
+      @raw_result ||= client.post("/v1/get-profile-by-email",
                                   'email' => email)
                             .deep_transform_keys! { |key| key.underscore }
     end
@@ -51,8 +58,9 @@ module Snov
     class ProspectResult
       include ActiveModel::Model
 
-      attr_accessor :id, :name, :first_name, :last_name, :industry, :country, :locality
-      attr_reader :social, :current_job, :previous_job, :lists, :campaigns, :last_update_date
+      attr_accessor :id, :name, :first_name, :last_name, :industry, :country, :locality, :success, :source
+      attr_accessor :logo, :last_update_date, :message
+      attr_reader :social, :current_jobs, :previous_jobs
 
       def social=(val)
         @social = Array.wrap(val).map do |rel|
@@ -60,32 +68,16 @@ module Snov
         end
       end
 
-      def current_job=(val)
-        @current_job = Array.wrap(val).map do |rel|
+      def current_jobs=(val)
+        @current_jobs = Array.wrap(val).map do |rel|
           Job.new(rel)
         end
       end
 
-      def previous_job=(val)
-        @previous_job = Array.wrap(val).map do |rel|
+      def previous_jobs=(val)
+        @previous_jobs = Array.wrap(val).map do |rel|
           Job.new(rel)
         end
-      end
-
-      def lists=(val)
-        @lists = Array.wrap(val).map do |rel|
-          List.new(rel)
-        end
-      end
-
-      def campaigns=(val)
-        @campaigns = Array.wrap(val).map do |rel|
-          OpenStruct.new(rel)
-        end
-      end
-
-      def last_update_date=(val)
-        @last_update_date = Types::DateDetails.new(val.to_hash)
       end
     end
   end

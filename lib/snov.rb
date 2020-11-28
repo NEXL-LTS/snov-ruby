@@ -19,6 +19,7 @@ end
 require 'active_model'
 require 'snov/client'
 require 'snov/fake_client'
+require 'snov/get_profile_by_email'
 require 'snov/get_all_prospects_from_list'
 require 'snov/get_prospects_by_email'
 require 'snov/get_prospect_list'
