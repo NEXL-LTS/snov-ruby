@@ -17,6 +17,12 @@ module Snov
         expect(result).to be_present
       end
 
+      it '/v1/get-profile-by-email' do
+        result = subject.post("/v1/get-profile-by-email")
+
+        expect(result).to be_present
+      end
+
       it 'when /v1/get-prospects-by-email' do
         result = subject.post("/v1/get-prospects-by-email")
 
