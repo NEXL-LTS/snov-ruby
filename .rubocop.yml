@@ -8,3 +8,6 @@ AllCops:
 
 Style:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 25

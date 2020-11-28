@@ -1,0 +1,55 @@
+{
+    "success": true,
+    "list": {
+        "name": "Lead LIST",
+        "contacts": 3,
+        "creationDate": {
+            "date": "2020-05-19 17:34:39.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "emailsCount": []
+    },
+    "prospects": [
+        {
+            "id": "226db935fc93422496fda5d5209e8cbf77cc77ec685891706028009b86608f7ce5877a3faf",
+            "name": "Andrew Garfiled",
+            "firstName": "Andrew",
+            "lastName": "Garfiled",
+            "emails": [
+                {
+                    "email": "andrewexp@exp.com",
+                    "probability": 99,
+                    "isVerified": null,
+                    "jobStatus": "any",
+                    "domainType": "linkedin_email",
+                    "isValidFormat": null,
+                    "isDisposable": null,
+                    "isWebmail": null,
+                    "isGibberish": null,
+                    "smtpStatus": null
+                }
+            ]
+        },
+        {
+            "id": "f20d30219b039d1408d837a748a1e2ab843c97e65080f6cf8fa7d948477d9093d87413f05f",
+            "name": "John Doe",
+            "firstName": "John",
+            "lastName": "Doe",
+            "emails": [
+                {
+                    "email": "johndoe@gmail.com",
+                    "probability": 99,
+                    "isVerified": null,
+                    "jobStatus": "any",
+                    "domainType": "linkedin_email",
+                    "isValidFormat": true,
+                    "isDisposable": false,
+                    "isWebmail": true,
+                    "isGibberish": false,
+                    "smtpStatus": 3
+                }
+            ]
+        }
+    ]
+}

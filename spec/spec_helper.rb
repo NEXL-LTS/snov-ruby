@@ -1,5 +1,13 @@
 require "bundler/setup"
+
+require 'simplecov'
+SimpleCov.start
+SimpleCov.minimum_coverage_by_file 90
+SimpleCov.minimum_coverage 95
+
 require "snov"
+
+require 'webmock/rspec'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
