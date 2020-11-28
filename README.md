@@ -20,6 +20,28 @@ Or install it yourself as:
 
 set `SNOV_USER_ID` and `SNOV_SECRET` environment variables
 
+### GetProspectList
+
+see https://snov.io/api#FindProspectbyEmail
+
+```ruby
+  prospects = Snov::GetProspectsByEmail.new(email: "gavin.vanrooyen@octagon.com")
+  prospects.each do |prospect|
+    puts prospect.id
+    puts prospect.name
+    puts prospect.first_name
+    puts prospect.last_name
+    puts prospect.industry
+    puts prospect.country
+    puts prospect.locality
+    prospect.social.each do |social_info|
+      puts social.link
+      puts social.type
+    end
+    # etc
+  end
+```
+
 ### GetUserLists
 
 see https://snov.io/api#UserLists 

@@ -32,7 +32,7 @@ module Snov
 
     def get(path, params = {})
       resp = conn.get(path) do |req|
-        req.body = params.merge('access_token' => access_token).to_json
+        req.body = MultiJson.dump(params.merge('access_token' => access_token))
         req.options.timeout = timeout_seconds # open/read timeout in seconds
         req.options.open_timeout = timeout_seconds # connection open timeout in seconds
       end
@@ -43,7 +43,7 @@ module Snov
 
     def post(path, params = {})
       resp = conn.post(path) do |req|
-        req.body = params.merge('access_token' => access_token).to_json
+        req.body = MultiJson.dump(params.merge('access_token' => access_token))
         req.options.timeout = timeout_seconds # open/read timeout in seconds
         req.options.open_timeout = timeout_seconds # connection open timeout in seconds
       end
@@ -76,7 +76,7 @@ module Snov
 
     def generate_access_token
       resp = conn.post('/v1/oauth/access_token') do |req|
-        req.body = access_token_params.to_json
+        req.body = MultiJson.dump(access_token_params)
         req.options.timeout = timeout_seconds # open/read timeout in seconds
         req.options.open_timeout = timeout_seconds # connection open timeout in seconds
       end

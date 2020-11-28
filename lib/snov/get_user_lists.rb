@@ -1,3 +1,5 @@
+require_relative 'types/date_details'
+
 module Snov
   class GetUserLists
     include Enumerable
@@ -22,12 +24,6 @@ module Snov
       end
     end
 
-    class DateDetails
-      include ActiveModel::Model
-
-      attr_accessor :date, :timezone_type, :timezone
-    end
-
     class UserList
       include ActiveModel::Model
 
@@ -35,12 +31,12 @@ module Snov
       attr_reader :creation_date, :deletion_date
 
       def creation_date=(val)
-        @creation_date = DateDetails.new(val.to_hash)
+        @creation_date = Types::DateDetails.new(val.to_hash)
       end
 
       def deletion_date=(val)
         @deletion_date = val
-        @deletion_date = DateDetails.new(val.to_hash) if val
+        @deletion_date = Types::DateDetails.new(val.to_hash) if val
       end
 
       def to_h
