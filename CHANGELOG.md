@@ -1,3 +1,5 @@
+* DomainSearch Response class
+
 ## [0.2.1]
 * DomainSearch fake example data
 

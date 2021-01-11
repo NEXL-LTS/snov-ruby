@@ -3,6 +3,7 @@ require 'camel_snake_struct'
 
 module Snov
   class DomainSearch
+    Response = Class.new(CamelSnakeStruct)
     include Enumerable
 
     attr_reader :client, :domain, :type, :limit
@@ -40,11 +41,11 @@ module Snov
     end
 
     def raw_result
-      CamelSnakeStruct.new(client.post("/v2/domain-emails-with-info",
-                                       'lastId' => @last_id,
-                                       'limit' => @limit,
-                                       'type' => type.to_s,
-                                       'domain' => domain.to_s))
+      Response.new(client.post("/v2/domain-emails-with-info",
+                               'lastId' => @last_id,
+                               'limit' => @limit,
+                               'type' => type.to_s,
+                               'domain' => domain.to_s))
     end
   end
 end
