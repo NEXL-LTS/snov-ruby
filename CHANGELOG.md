@@ -1,3 +1,4 @@
+## [0.2.2]
 * DomainSearch Response class
 
 ## [0.2.1]

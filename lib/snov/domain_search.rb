@@ -4,6 +4,7 @@ require 'camel_snake_struct'
 module Snov
   class DomainSearch
     Response = Class.new(CamelSnakeStruct)
+    Response.example(MultiJson.load(File.read("#{__dir__}/fake_client/post_v2_domain-emails-with-info.json")))
     include Enumerable
 
     attr_reader :client, :domain, :type, :limit
