@@ -1,0 +1,21 @@
+{
+    "success": true,
+    "domain": "octagon.com",
+    "webmail": false,
+    "result": 84,
+    "lastId": 1823487525,
+    "limit": 100,
+    "companyName": "Octagon",
+    "emails": [
+        {
+        "email": "ben.gillespie@octagon.com",
+        "firstName": "Ben",
+        "lastName": "Gillespie",
+        "position": "Senior Account Executive",
+        "sourcePage": "https://www.linkedin.com/pub/ben-gillespie/7/73/809",
+        "companyName": "Octagon",
+        "type": "prospect",
+        "status": "verified"
+        }
+    ]
+}

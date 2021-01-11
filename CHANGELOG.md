@@ -1,3 +1,6 @@
+## [0.2.1]
+* DomainSearch fake example data
+
 ## [0.2.0]
 * DomainSearch
 
