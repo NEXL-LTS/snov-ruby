@@ -20,6 +20,24 @@ Or install it yourself as:
 
 set `SNOV_USER_ID` and `SNOV_SECRET` environment variables
 
+### DomainSearch
+
+see https://snov.io/api#DomainSearch2
+
+```ruby
+results = Snov::DomainSearch.new(domain: "octagon.com", type: "personal", limit: 10)
+results.lastId
+results.each do |result|
+  puts result.email
+  puts result.first_name
+  puts result.last_name
+  puts result.position
+  puts result.source_page
+  puts result.company_name
+  puts result.type
+  puts result.status
+end
+```
 
 ### GetProfileByEmail
 
