@@ -1,3 +1,6 @@
+## [0.3.1]
+* fix fake result for /v1/prospect-list
+
 ## [0.3.0]
 * add Faraday response into exception
 * fake client to only return success result for selected queries

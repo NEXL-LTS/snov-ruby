@@ -48,13 +48,13 @@ module Snov
     end
 
     it 'works for /v1/prospect-list' do
-      data = subject.post("/v1/prospect-list", { list_id: 1818597, page: 1, per_page: 100 })
+      data = subject.post("/v1/prospect-list", { listId: 1818597, page: 1, perPage: 100 })
       expect(data['prospects'].first).to include("name" => "Andrew Garfiled")
     end
 
     it 'works for /v1/prospect-list that does not exist' do
       expect {
-        subject.post("/v1/prospect-list", { list_id: 0, page: 1, per_page: 100 })
+        subject.post("/v1/prospect-list", { listId: 0, page: 1, perPage: 100 })
       }.to raise_error(Snov::Client::BadRequest)
     end
 
