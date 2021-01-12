@@ -26,7 +26,7 @@ see https://snov.io/api#DomainSearch2
 
 ```ruby
 results = Snov::DomainSearch.new(domain: "octagon.com", type: "personal", limit: 10)
-results.lastId
+results.last_id
 results.each do |result|
   puts result.email
   puts result.first_name

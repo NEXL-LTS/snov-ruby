@@ -5,30 +5,30 @@ module Snov
     let(:client) { instance_double(Client) }
 
     before do
-      allow(client).to receive(:post).with("/v2/domain-emails-with-info",
-                                           "type" => "personal", "limit" => 10,
-                                           "domain" => 'octagon.com', "lastId" => 0)
-                                     .and_return(
-                                       "success" => true,
-                                       "domain" => "octagon.com",
-                                       "webmail" => false,
-                                       "result" => 84,
-                                       "lastId" => 1823487525,
-                                       "limit" => 100,
-                                       "companyName" => "Octagon",
-                                       "emails" => [
-                                         {
-                                           "email" => "ben.gillespie@octagon.com",
-                                           "firstName" => "Ben",
-                                           "lastName" => "Gillespie",
-                                           "position" => "Senior Account Executive",
-                                           "sourcePage" => "https://www.linkedin.com/pub/ben-gillespie/7/73/809",
-                                           "companyName" => "Octagon",
-                                           "type" => "prospect",
-                                           "status" => "verified"
-                                         }
-                                       ]
-                                     )
+      allow(client).to receive(:get).with("/v2/domain-emails-with-info",
+                                          "type" => "personal", "limit" => 10,
+                                          "domain" => 'octagon.com', "lastId" => 0)
+                                    .and_return(
+                                      "success" => true,
+                                      "domain" => "octagon.com",
+                                      "webmail" => false,
+                                      "result" => 84,
+                                      "lastId" => 1823487525,
+                                      "limit" => 100,
+                                      "companyName" => "Octagon",
+                                      "emails" => [
+                                        {
+                                          "email" => "ben.gillespie@octagon.com",
+                                          "firstName" => "Ben",
+                                          "lastName" => "Gillespie",
+                                          "position" => "Senior Account Executive",
+                                          "sourcePage" => "https://www.linkedin.com/pub/ben-gillespie/7/73/809",
+                                          "companyName" => "Octagon",
+                                          "type" => "prospect",
+                                          "status" => "verified"
+                                        }
+                                      ]
+                                    )
     end
 
     it 'returns all' do

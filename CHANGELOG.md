@@ -1,3 +1,5 @@
+## [0.2.3]
+* Fix DomainSearch doing post instead of get
 ## [0.2.2]
 * DomainSearch Response class
 
