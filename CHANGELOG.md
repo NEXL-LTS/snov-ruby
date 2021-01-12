@@ -1,3 +1,7 @@
+## [0.3.0]
+* add Faraday response into exception
+* fake client to only return success result for selected queries
+
 ## [0.2.4]
 * Fix DomainSearch to_a
 

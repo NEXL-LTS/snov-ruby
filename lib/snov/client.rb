@@ -7,19 +7,29 @@ module Snov
 
     class TimedOut < SnovError; end
 
-    class UnauthorizedError < SnovError; end
-
-    class BadGatewayError < SnovError; end
-
-    class ForbiddenError < SnovError; end
-
-    class GatewayTimeOut < SnovError; end
-
-    class BadRequest < SnovError; end
-
     class AuthError < SnovError; end
 
-    class MethodNotAllowed < SnovError; end
+    class ResponseError < SnovError
+      attr_reader :response
+
+      def initialize(message, response: nil)
+        super(message)
+        @response = response
+      end
+    end
+
+    class UnauthorizedError < ResponseError; end
+
+    class BadGatewayError < ResponseError; end
+
+    class ForbiddenError < ResponseError; end
+
+    class GatewayTimeOut < ResponseError; end
+
+    class BadRequest < ResponseError; end
+
+    class MethodNotAllowed < ResponseError; end
+
     ERROR_CLASSES = { 401 => UnauthorizedError, 502 => BadGatewayError, 403 => ForbiddenError,
                       504 => GatewayTimeOut, 400 => BadRequest, 405 => MethodNotAllowed }
 
@@ -56,8 +66,8 @@ module Snov
 
     def parse_response(resp, path, _params)
       unless resp.success?
-        raise ERROR_CLASSES.fetch(resp.status, SnovError),
-              "#{path} (#{resp.status})"
+        error_class = ERROR_CLASSES.fetch(resp.status, ResponseError)
+        raise error_class.new("#{path} (#{resp.status})", response: resp)
       end
       MultiJson.load(resp.body)
     end

@@ -11,3 +11,4 @@
 /gems.locked
 /vendor/bundle
 /.vscode
+/spec/snov/moved

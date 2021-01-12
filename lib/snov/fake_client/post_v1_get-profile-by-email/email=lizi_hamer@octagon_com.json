@@ -1,0 +1,103 @@
+{
+  "success": true,
+  "id": 301592,
+  "source": "linkedIn",
+  "name": "Lizi Hamer",
+  "firstName": "Lizi",
+  "lastName": "Hamer",
+  "logo": "https://app.snov.io/img/peoples/010fcf23c70dfa68d880545ec89a9215.jpg",
+  "industry": null,
+  "country": "Singapore",
+  "locality": "Singapore",
+  "social": [
+      {
+          "link": "https://www.linkedin.com/in/lizihamer/",
+          "type": "linkedIn"
+      },
+      {
+          "link": "https://twitter.com/LiziHamer",
+          "type": "twitter"
+      }
+  ],
+  "currentJobs": [
+      {
+          "companyName": "Octagon",
+          "position": "Regional Creative Director",
+          "socialLink": "https://www.linkedin.com/company/165282",
+          "site": "www.octagon.com",
+          "locality": "Greater New York City Area",
+          "state": "Connecticut",
+          "city": "Stamford",
+          "street": "290 Harbor Dr",
+          "street2": "2nd Floor",
+          "postal": "06902",
+          "founded": "1983",
+          "startDate": "2016-01-31",
+          "endDate": null,
+          "size": "1-10",
+          "industry": "Marketing and Advertising",
+          "companyType": "Public Company",
+          "country": "United States"
+      },
+      {
+          "companyName": "SisuGirls",
+          "position": "Co Founder",
+          "socialLink": "https://www.linkedin.com/company/3841118",
+          "site": "http://www.sisugirls.org",
+          "locality": null,
+          "state": "SG",
+          "city": "Singapore",
+          "street": "33-03 Hong Leong Building",
+          "street2": null,
+          "postal": null,
+          "founded": "2014",
+          "startDate": "2015-07-31",
+          "endDate": null,
+          "size": "1-10",
+          "industry": "Health, Wellness and Fitness",
+          "companyType": null,
+          "country": "Singapore"
+      }
+  ],
+  "previousJobs": [
+      {
+          "companyName": "Fusion Co-innovation Labs",
+          "position": "Creative Entrepreneur",
+          "socialLink": null,
+          "site": null,
+          "locality": null,
+          "state": null,
+          "city": null,
+          "street": null,
+          "street2": null,
+          "postal": null,
+          "founded": null,
+          "startDate": "2013-05-31",
+          "endDate": "2013-10-31",
+          "size": null,
+          "industry": null,
+          "companyType": null,
+          "country": null
+      },
+      {
+          "companyName": "Russell Commission",
+          "position": "Youth Advisory Board Member",
+          "socialLink": null,
+          "site": null,
+          "locality": null,
+          "state": null,
+          "city": null,
+          "street": null,
+          "street2": null,
+          "postal": null,
+          "founded": null,
+          "startDate": "2004-06-30",
+          "endDate": "2006-06-30",
+          "size": null,
+          "industry": null,
+          "companyType": null,
+          "country": null
+      }
+  ],
+  "lastUpdateDate": "2018-02-07 10:12:28"
+  }
