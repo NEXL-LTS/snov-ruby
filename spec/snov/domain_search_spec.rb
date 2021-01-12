@@ -34,12 +34,9 @@ module Snov
     it 'returns all' do
       result = subject.first
       expect(result).to have_attributes(first_name: 'Ben', last_name: 'Gillespie')
-      expect(subject).to have_attributes(success: true,
-                                         domain: 'octagon.com',
-                                         webmail: false,
-                                         result: 84,
-                                         last_id: 1823487525,
-                                         limit: 10,
+      expect(subject).to have_attributes(success: true, domain: 'octagon.com',
+                                         webmail: false, result: 84,
+                                         last_id: 1823487525, limit: 10,
                                          company_name: 'Octagon')
       expect(subject.to_a).to be_a(Array)
       expect(subject.to_h).to be_a(Hash)
