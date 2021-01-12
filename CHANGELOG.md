@@ -1,3 +1,6 @@
+## [0.2.4]
+* Fix DomainSearch to_a
+
 ## [0.2.3]
 * Fix DomainSearch doing post instead of get
 ## [0.2.2]

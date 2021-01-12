@@ -41,6 +41,8 @@ module Snov
                                          last_id: 1823487525,
                                          limit: 10,
                                          company_name: 'Octagon')
+      expect(subject.to_a).to be_a(Array)
+      expect(subject.to_h).to be_a(Hash)
     end
   end
 end

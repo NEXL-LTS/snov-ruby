@@ -9,6 +9,7 @@ gem "rubocop"
 gem "rubocop-rspec"
 gem "simplecov"
 gem "webmock"
+gem "byebug"
 
 if ENV['GEM_VERSIONS'] == 'min'
   gem 'activemodel', '~> 4.1.0'

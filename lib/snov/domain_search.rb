@@ -18,7 +18,7 @@ module Snov
     end
 
     def each(&block)
-      raw_result.emails.each(&block)
+      emails.each(&block)
     end
 
     def success
@@ -41,12 +41,20 @@ module Snov
       raw_result.company_name
     end
 
+    def emails
+      raw_result.emails
+    end
+
     def raw_result
       @raw_result ||= Response.new(client.get("/v2/domain-emails-with-info",
                                               'lastId' => @last_id,
                                               'limit' => @limit,
                                               'type' => type.to_s,
                                               'domain' => domain.to_s))
+    end
+
+    def to_h
+      raw_result.to_h
     end
   end
 end
