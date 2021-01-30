@@ -36,6 +36,14 @@ module Snov
 
         expect { subject.get("/test", { "eg" => "yes" }) }.to raise_error(Client::TimedOut)
       end
+
+      it 'can handle 400 errors' do
+        stub_request(:get, "https://api.snov.io/test")
+          .with(body: "{\"eg\":\"yes\",\"access_token\":\"example\"}")
+          .to_return(status: 400, body: { "errors" => "result" }.to_json)
+
+        expect { subject.get("/test", { "eg" => "yes" }) }.to raise_error(Client::BadRequest)
+      end
     end
 
     describe "#post" do
@@ -65,6 +73,14 @@ module Snov
           .and_raise(Faraday::TimeoutError)
 
         expect { subject.post("/test", { "eg" => "yes" }) }.to raise_error(Client::TimedOut)
+      end
+
+      it 'can handle 400 errors' do
+        stub_request(:post, "https://api.snov.io/test")
+          .with(body: "{\"eg\":\"yes\",\"access_token\":\"example\"}")
+          .to_return(status: 400, body: { "errors" => "result" }.to_json)
+
+        expect { subject.post("/test", { "eg" => "yes" }) }.to raise_error(Client::BadRequest)
       end
     end
   end
