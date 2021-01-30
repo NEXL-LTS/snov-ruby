@@ -67,7 +67,7 @@ module Snov
     def parse_response(resp, path, _params)
       unless resp.success?
         error_class = ERROR_CLASSES.fetch(resp.status, ResponseError)
-        raise error_class.new("#{path} (#{resp.status})", response: resp)
+        raise error_class.new("#{path} (#{resp.status})", response: resp&.body)
       end
       MultiJson.load(resp.body)
     end
