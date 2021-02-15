@@ -1,3 +1,5 @@
+## [0.3.2]
+* increase snov timeout to 90 seconds
 ## [0.3.1]
 * fix fake result for /v1/prospect-list
 
