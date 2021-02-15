@@ -33,7 +33,7 @@ module Snov
     ERROR_CLASSES = { 401 => UnauthorizedError, 502 => BadGatewayError, 403 => ForbiddenError,
                       504 => GatewayTimeOut, 400 => BadRequest, 405 => MethodNotAllowed }
 
-    def initialize(client_id:, client_secret:, access_token: nil, timeout_seconds: 60)
+    def initialize(client_id:, client_secret:, access_token: nil, timeout_seconds: 90)
       self.client_id = client_id.to_str
       self.client_secret = client_secret.to_str
       @access_token = access_token
