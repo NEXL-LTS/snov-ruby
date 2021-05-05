@@ -148,6 +148,40 @@ see https://snov.io/api#ViewProspectsInList
   end
 ```
 
+### GetEmailsBySocialUrl
+
+convenience wrapper for `GetEmailsFromUrl` to get a prospect with social url e.g. linkedin profile url
+
+see https://snov.io/api#GetEmailsFromUrl
+
+```ruby
+  prospect = Snov::GetEmailsBySocialUrl.new(url: "https://www.linkedin.com/in/john-doe-123456/").prospect
+  
+  prospect.data.emails.each do |value|
+    puts value.email
+    puts value.status
+  end
+
+  prospect.data.previous_jobs.each do |value|
+    puts value.company_name
+    puts value.company_type
+    puts value.position
+    puts value.country
+    puts value.start_date
+    puts value.industry
+    puts value.size
+  end
+
+  prospect.data.current_jobs.each do |value|
+    puts value.company_name
+    puts value.company_type
+    puts value.position
+    puts value.country
+    puts value.start_date
+    puts value.industry
+    puts value.size
+  end
+```
 
 ## Development
 
