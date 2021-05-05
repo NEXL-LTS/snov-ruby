@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Snov client to interact with snov api}
   spec.description   = %q{Snov client to interact with snov api}
   spec.homepage      = "https://github.com/NEXL-LTS/snov-ruby"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/NEXL-LTS/snov-ruby"
