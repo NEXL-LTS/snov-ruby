@@ -2,6 +2,7 @@ require:
   - rubocop-rspec
 
 AllCops:
+  TargetRubyVersion: 2.4
   SuggestExtensions: false
   NewCops: enable
   Exclude:
