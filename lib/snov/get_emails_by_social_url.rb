@@ -46,7 +46,7 @@ module Snov
 
       attr_reader :emails, :previous_jobs, :current_jobs
       attr_accessor :id, :name, :first_name, :last_name, :source_page, :source, :industry,
-                    :country, :locality, :last_update_date, :social
+                    :country, :locality, :last_update_date, :social, :skills, :links
 
       def emails=(val)
         @emails = Array.wrap(val).map do |rel|
@@ -70,7 +70,7 @@ module Snov
       attr_reader :data
 
       def data=(val)
-        @data = ProspectData.new(val.first)
+        @data = ProspectData.new(val)
       end
     end
   end
