@@ -1,3 +1,6 @@
+## [0.4.0]
+* search prospect emails with /v1/get-emails-from-url
+
 ## [0.3.2]
 * increase snov timeout to 90 seconds
 ## [0.3.1]
