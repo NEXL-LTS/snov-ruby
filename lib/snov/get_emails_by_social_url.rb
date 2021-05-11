@@ -66,7 +66,7 @@ module Snov
     class ProspectResult
       include ActiveModel::Model
 
-      attr_accessor :success
+      attr_accessor :success, :message
       attr_reader :data
 
       def data=(val)
