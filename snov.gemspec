@@ -3,8 +3,8 @@ require_relative 'lib/snov/version'
 Gem::Specification.new do |spec|
   spec.name          = "snov"
   spec.version       = Snov::VERSION
-  spec.authors       = ["Grant Petersen-Speelman"]
-  spec.email         = ["grantspeelman@gmail.com"]
+  spec.authors       = ["Grant Petersen-Speelman", "Bapu Sethi"]
+  spec.email         = ["grantspeelman@gmail.com", "bapu.sethi.03@gmail.com"]
   spec.license       = "MIT"
 
   spec.summary       = %q{Snov client to interact with snov api}
