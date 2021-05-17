@@ -1,3 +1,6 @@
+## [0.4.1]
+* allow forward slash for test response files while using fake client
+
 ## [0.4.0]
 * search prospect emails with /v1/get-emails-from-url
 

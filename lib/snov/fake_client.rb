@@ -46,7 +46,7 @@ module Snov
     def filename(method, path, payload_hash)
       add = payload_hash.to_a.map { |v| v.join("=") }.join("&").tr(".", "_")
       add = "default" if add == ""
-      "#{self.class.folder}/#{method}#{path.tr("/", "_")}/#{add}.json"
+      "#{self.class.folder}/#{method}#{path.tr("/", "_")}/#{add.gsub('/', '-')}.json"
     end
   end
 end
