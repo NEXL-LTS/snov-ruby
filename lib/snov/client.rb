@@ -22,6 +22,8 @@ module Snov
 
     class BadGatewayError < ResponseError; end
 
+    class OutOfCreditsError < BadGatewayError; end
+
     class ForbiddenError < ResponseError; end
 
     class GatewayTimeOut < ResponseError; end
@@ -32,6 +34,14 @@ module Snov
 
     ERROR_CLASSES = { 401 => UnauthorizedError, 502 => BadGatewayError, 403 => ForbiddenError,
                       504 => GatewayTimeOut, 400 => BadRequest, 405 => MethodNotAllowed }
+
+    def self.select_error_class(resp, fallback: ResponseError)
+      if resp&.body.to_s.include?('you ran out of credits')
+        OutOfCreditsError
+      else
+        ERROR_CLASSES.fetch(resp.status, fallback)
+      end
+    end
 
     def initialize(client_id:, client_secret:, access_token: nil, timeout_seconds: 90)
       self.client_id = client_id.to_str
@@ -66,7 +76,7 @@ module Snov
 
     def parse_response(resp, path, _params)
       unless resp.success?
-        error_class = ERROR_CLASSES.fetch(resp.status, ResponseError)
+        error_class = Client.select_error_class(resp, fallback: ResponseError)
         raise error_class.new("#{path} (#{resp.status})", response: resp&.body)
       end
       MultiJson.load(resp.body)

@@ -37,6 +37,16 @@ module Snov
         expect { subject.get("/test", { "eg" => "yes" }) }.to raise_error(Client::TimedOut)
       end
 
+      it 'can handle 400 out of credits errors' do
+        stub_request(:get, "https://api.snov.io/test")
+          .with(body: "{\"eg\":\"yes\",\"access_token\":\"example\"}")
+          .to_return(status: 400,
+                     body: { "success": false,
+                             "message": "Sorry, you ran out of credits, please order more credits" }.to_json)
+
+        expect { subject.get("/test", { "eg" => "yes" }) }.to raise_error(Client::OutOfCreditsError)
+      end
+
       it 'can handle 400 errors' do
         stub_request(:get, "https://api.snov.io/test")
           .with(body: "{\"eg\":\"yes\",\"access_token\":\"example\"}")

@@ -1,3 +1,8 @@
+* add OutOfCreditsError
+
+## [0.5.0]
+* support for https://snov.io/api#EmailFinder (GetEmailsFromName)
+
 ## [0.4.1]
 * allow forward slash for test response files while using fake client
 
