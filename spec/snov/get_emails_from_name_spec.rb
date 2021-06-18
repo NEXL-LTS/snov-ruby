@@ -33,6 +33,10 @@ module Snov
       it 'returns prospect status' do
         expect(subject.status).to have_attributes(identifier: 'complete')
       end
+
+      it 'returns prospect status completed?' do
+        expect(subject.status.completed?).to be(true)
+      end
     end
   end
 end

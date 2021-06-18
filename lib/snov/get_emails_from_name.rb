@@ -44,6 +44,10 @@ module Snov
       include ActiveModel::Model
 
       attr_accessor :identifier, :description
+
+      def completed?
+        identifier == 'complete'
+      end
     end
 
     class ProspectResult
