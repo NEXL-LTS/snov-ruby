@@ -183,6 +183,21 @@ see https://snov.io/api#GetEmailsFromUrl
   end
 ```
 
+### GetEmailsFromName
+
+convenience wrapper for `GetEmailsFromName` to get a prospect with name
+
+see https://snov.io/api#EmailFinder
+
+```ruby
+  prospect = Snov::GetEmailsFromName.new(first_name: "gavin", last_name: "vanrooyen", domain: "octagon.com").prospect
+  
+  prospect.data.emails.each do |value|
+    puts value.email
+    puts value.email_status
+  end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
