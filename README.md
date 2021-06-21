@@ -198,6 +198,19 @@ see https://snov.io/api#EmailFinder
   end
 ```
 
+### AddNamesToFindEmails
+
+convenience wrapper for `AddNamesToFindEmails` to add a prospect with name
+
+see https://snov.io/api#AddNamestoFindEmails
+
+```ruby
+  added_name = Snov::AddNamesToFindEmails.new(first_name: "gavin", last_name: "vanrooyen", domain: "octagon.com").add
+
+  puts added_name.sent # true added to snov queue for searching
+  puts added_name.success
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
