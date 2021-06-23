@@ -24,7 +24,7 @@ module Snov
     class ProspectResult
       include ActiveModel::Model
 
-      attr_accessor :success, :first_name, :last_name, :domain, :user_id, :sent
+      attr_accessor :success, :first_name, :last_name, :domain, :user_id, :sent, :access_token
     end
   end
 end
