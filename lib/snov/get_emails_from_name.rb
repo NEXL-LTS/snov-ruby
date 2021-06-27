@@ -24,7 +24,7 @@ module Snov
     class ProspectData
       include ActiveModel::Model
 
-      attr_accessor :first_name, :last_name
+      attr_accessor :first_name, :last_name, :domain
       attr_reader :emails
 
       def emails=(val)
@@ -47,6 +47,14 @@ module Snov
 
       def completed?
         identifier == 'complete'
+      end
+
+      def in_progress?
+        identifier == 'in_progress'
+      end
+
+      def not_found?
+        identifier == 'not_found'
       end
     end
 
