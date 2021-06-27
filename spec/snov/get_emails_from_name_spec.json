@@ -1,7 +1,7 @@
 { 
   "success" : true,
   "data" : { 
-             "first_name" : "Bapu", "last_name" : "Sethi",
+             "first_name" : "Bapu", "last_name" : "Sethi", "domain": "nexl.io",
              "emails" :[{"email" : "bapu@nexl.io", "email_status" : "valid"}]
            },
   "params" : {"first_name" : "bapu", "last_name" : "sethi", "domain" : "nexl.io"},
