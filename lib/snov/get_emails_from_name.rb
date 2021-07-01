@@ -24,7 +24,7 @@ module Snov
     class ProspectData
       include ActiveModel::Model
 
-      attr_accessor :first_name, :last_name, :domain
+      attr_accessor :first_name, :last_name, :domain, :name
       attr_reader :emails
 
       def emails=(val)
