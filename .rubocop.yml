@@ -13,3 +13,7 @@ Style:
 
 Metrics/AbcSize:
   Max: 25
+
+RSpec/SubjectStub:
+  Exclude:
+    - 'spec/snov/get_emails_from_name_spec.rb'
