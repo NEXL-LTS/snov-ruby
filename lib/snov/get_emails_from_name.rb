@@ -10,11 +10,9 @@ module Snov
     end
 
     def prospect
-      if raw_result.is_a?(String)
-        raise ArgumentError.new("#{raw_result} searching prospect with #{@first_name} #{@last_name} #{@domain}")
-      end
-
       @prospect ||= ProspectResult.new(raw_result)
+    rescue ArgumentError => e
+      raise ArgumentError.new("#{@raw_result} searching prospect with #{@first_name} #{@last_name} #{@domain}")
     end
 
     def raw_result
