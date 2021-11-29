@@ -5,6 +5,8 @@ module Snov
       FileUtils.mkdir_p(@folder)
       ["post_v1_get-profile-by-email", "get_v2_domain-emails-with-info",
        "post_v1_get-prospects-by-email", "post_v1_prospect-list", "get_v1_get-user-lists"].each do |sub_folder|
+        next if File.exist?("#{default_folder}/#{sub_folder}")
+
         FileUtils.cp_r "#{default_folder}/#{sub_folder}", @folder
       end
     end
