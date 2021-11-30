@@ -3,7 +3,7 @@ module Snov
     def self.folder=(val)
       @folder = val
       FileUtils.mkdir_p(@folder)
-      ["post_v1_get-profile-by-email", "get_v2_domain-emails-with-info",
+      ["post_v1_get-profile-by-email", "get_v2_domain-emails-with-info", "post_v1_get-emails-from-url",
        "post_v1_get-prospects-by-email", "post_v1_prospect-list", "get_v1_get-user-lists"].each do |sub_folder|
         next if File.exist?("#{default_folder}/#{sub_folder}")
 
@@ -32,12 +32,13 @@ module Snov
     end
 
     def post(path, payload_hash = {})
-      data = File.read(filename("post", path, payload_hash))
+      file_loc = filename("post", path, payload_hash)
+      data = File.read(file_loc)
       MultiJson.load(data)
     rescue Errno::ENOENT => e
       file = filename("post", path, 'not_found' => 'true')
       if File.exist?(file)
-        MultiJson.load(File.read(file))
+        MultiJson.load(File.read(file)).merge('file_location' => file_loc)
       else
         raise Snov::Client::BadRequest, e.message
       end

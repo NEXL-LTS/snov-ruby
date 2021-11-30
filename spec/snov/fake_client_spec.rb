@@ -8,9 +8,14 @@ module Snov
                               "industry" => nil, "country" => "Singapore", "locality" => "Singapore")
     end
 
+    it 'works for /v1/get-emails-from-url' do
+      data = subject.post("/v1/get-emails-from-url", { url: "https://www.linkedin.com/in/john-doe-123456/" })
+      expect(data.keys).to contain_exactly("success", 'data')
+    end
+
     it 'works for /v1/get-profile-by-email that do not exist' do
       data = subject.post("/v1/get-profile-by-email", { email: "some.one@octagon.com" })
-      expect(data).to eq("success" => true, "message" => "We couldn't find profile with this email")
+      expect(data).to include("success" => true, "message" => "We couldn't find profile with this email")
     end
 
     it 'works for /v2/domain-emails-with-info' do

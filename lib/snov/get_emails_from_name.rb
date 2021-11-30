@@ -11,7 +11,7 @@ module Snov
 
     def prospect
       @prospect ||= ProspectResult.new(raw_result)
-    rescue ArgumentError => e
+    rescue ArgumentError
       raise ArgumentError.new("#{@raw_result} searching prospect with #{@first_name} #{@last_name} #{@domain}")
     end
 
