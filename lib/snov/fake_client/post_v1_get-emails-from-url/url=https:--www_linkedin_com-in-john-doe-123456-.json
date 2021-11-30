@@ -1,6 +1,6 @@
 {
   "success": true,
-  "data": [
+  "data":
     {
       "id": "xusD3-T_K5IktGoaa8Jc8A==",
       "name": "Gavin Vanrooyen",
@@ -66,5 +66,4 @@
             }
         ]
     }
-  ]
 }
