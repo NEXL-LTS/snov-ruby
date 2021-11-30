@@ -38,7 +38,7 @@ module Snov
     rescue Errno::ENOENT => e
       file = filename("post", path, 'not_found' => 'true')
       if File.exist?(file)
-        MultiJson.load(File.read(file)).merge('file_location' => file_loc)
+        MultiJson.load(File.read(file)).merge('message' => "no file found at #{file_loc}")
       else
         raise Snov::Client::BadRequest, e.message
       end

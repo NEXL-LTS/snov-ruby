@@ -15,7 +15,7 @@ module Snov
 
     it 'works for /v1/get-profile-by-email that do not exist' do
       data = subject.post("/v1/get-profile-by-email", { email: "some.one@octagon.com" })
-      expect(data).to include("success" => true, "message" => "We couldn't find profile with this email")
+      expect(data).to include("success" => false)
     end
 
     it 'works for /v2/domain-emails-with-info' do
@@ -29,7 +29,7 @@ module Snov
     it 'works for /v2/domain-emails-with-info that do not exist' do
       data = subject.get("/v2/domain-emails-with-info", { domain: "no-one-here-please.com" })
       expect(data).to include("companyName" => "", "domain" => "", "emails" => [], "lastId" => 0,
-                              "limit" => 10, "result" => 0, "success" => true, "webmail" => false)
+                              "limit" => 10, "result" => 0, "success" => false, "webmail" => false)
     end
 
     it 'works for /v1/get-prospects-by-email' do
