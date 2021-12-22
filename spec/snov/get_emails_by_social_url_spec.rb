@@ -28,7 +28,8 @@ module Snov
           "company_type" => "Public Company",
           "country" => "United States",
           "state" => "GA",
-          "street" => "55 Glenlake Parkway, NE"
+          "street" => "55 Glenlake Parkway, NE",
+          "site" => "http:\/\/www.ups.com\/"
         )
       end
 

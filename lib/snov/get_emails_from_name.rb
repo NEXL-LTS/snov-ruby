@@ -2,6 +2,15 @@ module Snov
   class GetEmailsFromName
     attr_reader :client
 
+    class InvalidProspectResultError < ArgumentError
+      attr_accessor :response
+
+      def initialize(message, response: nil)
+        self.response = response
+        super(message)
+      end
+    end
+
     def initialize(client: Snov.client, first_name:, last_name:, domain:)
       @client = client
       @first_name = first_name
@@ -11,8 +20,8 @@ module Snov
 
     def prospect
       @prospect ||= ProspectResult.new(raw_result)
-    rescue ArgumentError
-      raise ArgumentError.new("#{@raw_result} searching prospect with #{@first_name} #{@last_name} #{@domain}")
+    rescue ArgumentError => e
+      raise InvalidProspectResultError.new(e.message, response: raw_result)
     end
 
     def raw_result
