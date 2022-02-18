@@ -79,7 +79,7 @@ module Snov
         error_class = Client.select_error_class(resp, fallback: ResponseError)
         raise error_class.new("#{path} (#{resp.status})", response: resp&.body)
       end
-      MultiJson.load(resp.body)
+      MultiJson.load(resp.body.gsub("\u0000", ''))
     end
 
     attr_accessor :client_id, :client_secret, :timeout_seconds

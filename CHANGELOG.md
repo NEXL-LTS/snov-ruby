@@ -1,4 +1,5 @@
 * add OutOfCreditsError
+* remove "\u0000" from response
 
 ## [0.5.0]
 * support for https://snov.io/api#EmailFinder (GetEmailsFromName)
