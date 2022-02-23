@@ -1,0 +1,42 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@1.4.0
+
+jobs:
+  max_versions:
+    docker:
+      - image: circleci/ruby:3.1.1-stretch-node
+    executor: ruby/default
+    steps:
+      - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
+      - run:
+          command: bin/rubocop
+      - run:
+          command: bin/rspec
+  min_versions:
+    docker:
+      - image: circleci/ruby:2.5.9-stretch-node
+    executor: ruby/default
+    environment:
+      GEM_VERSIONS: 'min'
+    steps:
+      - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
+      - run:
+          command: bin/rubocop
+      - run:
+          command: bin/rspec
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - max_versions
+      - min_versions
