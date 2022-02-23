@@ -12,3 +12,4 @@
 /vendor/bundle
 /.vscode
 /spec/snov/moved
+.byebug_history
