@@ -20,7 +20,7 @@ module Snov
 
     def prospect
       @prospect ||= ProspectResult.new(raw_result)
-    rescue ArgumentError => e
+    rescue ArgumentError, NoMethodError => e
       raise InvalidProspectResultError.new(e.message, response: raw_result)
     end
 
