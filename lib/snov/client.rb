@@ -85,13 +85,24 @@ module Snov
     attr_accessor :client_id, :client_secret, :timeout_seconds
 
     def access_token
-      return @access_token if @access_token
-
-      @access_token = generate_access_token
+      if @access_token.nil? || @access_token.fetch("expires_at") < Time.now.to_i + 60
+        @access_token = load_access_token
+      end
+      @access_token.fetch('access_token')
     end
 
     def access_token_params
       { 'grant_type' => 'client_credentials', 'client_id' => client_id, 'client_secret' => client_secret }
+    end
+
+    def load_access_token
+      current_access_token = Snov.token_storage&.get || {}
+      if current_access_token.fetch("expires_at", 0) < Time.now.to_i + 60
+        current_access_token = generate_access_token
+        current_access_token['expires_at'] = Time.now.to_i + current_access_token.fetch('expires_in')
+        Snov.token_storage&.put(current_access_token)
+      end
+      current_access_token
     end
 
     def generate_access_token
@@ -103,7 +114,7 @@ module Snov
       handle_error(resp, "POST /v1/oauth/access_token")
       raise AuthError, 'Snov auth failed' if resp.body.blank?
 
-      MultiJson.load(resp.body).fetch("access_token")
+      MultiJson.load(resp.body)
     rescue Timeout::Error => e
       raise TimedOut, e.message
     end

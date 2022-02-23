@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/NEXL-LTS/snov-ruby.svg?branch=main)](https://travis-ci.org/NEXL-LTS/snov-ruby)
+[![CircleCI](https://circleci.com/gh/NEXL-LTS/snov-ruby.svg?style=svg)](https://circleci.com/gh/NEXL-LTS/snov-ruby)
 
 ## Installation
 
@@ -209,6 +209,33 @@ see https://snov.io/api#AddNamestoFindEmails
 
   puts added_name.sent # true added to snov queue for searching
   puts added_name.success
+```
+
+### can setup snov to be able to reuse access tokens
+
+```ruby
+Snov.token_storage = Snov::InMemoryTokenStorage.new
+# or
+Snov.token_storage = Snov::RedisTokenStorage.new(Redis.new)
+```
+
+Simple example implementation of your own token storage.
+
+```ruby
+class TokenStorage
+  def initialize
+    @stored_token = nil
+  end
+
+  def get
+    @stored_token
+  end
+
+  def set(token_hash)
+    @stored_token = token_hash
+  end
+end
+
 ```
 
 ## Development

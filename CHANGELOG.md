@@ -1,3 +1,4 @@
+* allow token to be stored and reused
 * add OutOfCreditsError
 * remove "\u0000" from response
 
