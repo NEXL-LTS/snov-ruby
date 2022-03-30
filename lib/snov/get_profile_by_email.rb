@@ -15,6 +15,8 @@ module Snov
 
     def prospect
       @prospect ||= ProspectResult.new(raw_result)
+    rescue ActiveModel::UnknownAttributeError, ArgumentError, NoMethodError => e
+      raise InvalidResponseError.new(e.message, response: raw_result)
     end
 
     def method_missing(method_name, *arguments, &block)

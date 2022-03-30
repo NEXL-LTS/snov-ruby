@@ -21,6 +21,8 @@ module Snov
       @prospects ||= raw_result.fetch('prospects').map do |result|
         ProspectResult.new(result)
       end
+    rescue ActiveModel::UnknownAttributeError, ArgumentError, NoMethodError => e
+      raise InvalidResponseError.new(e.message, response: raw_result)
     end
 
     def raw_result

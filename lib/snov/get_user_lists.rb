@@ -16,6 +16,8 @@ module Snov
 
     def all
       @all ||= raw_result.map { |result| UserList.new(result) }
+    rescue ActiveModel::UnknownAttributeError, ArgumentError, NoMethodError => e
+      raise InvalidResponseError.new(e.message, response: raw_result)
     end
 
     def raw_result

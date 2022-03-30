@@ -4,6 +4,15 @@ require 'active_support/core_ext/module/attribute_accessors'
 module Snov
   class Error < StandardError; end
 
+  class InvalidResponseError < Error
+    attr_accessor :response
+
+    def initialize(message, _response = nil)
+      self.response = nil
+      super(message)
+    end
+  end
+
   def self.client
     if !use_fake?
       Client.new(client_id: ENV['SNOV_USER_ID'], client_secret: ENV['SNOV_SECRET'])

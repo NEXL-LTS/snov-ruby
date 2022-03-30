@@ -54,7 +54,7 @@ module Snov
       end
 
       it do
-        expect { subject.prospect }.to raise_error(ArgumentError)
+        expect { subject.prospect }.to raise_error(Snov::InvalidResponseError)
       end
     end
   end
