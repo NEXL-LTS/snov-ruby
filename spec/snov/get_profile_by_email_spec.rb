@@ -27,5 +27,14 @@ module Snov
         expect(subject.previous_jobs).to be_kind_of(Array)
       end
     end
+
+    context 'when unsuccessful' do
+      let(:json) { File.read(__dir__ + "/get_profile_by_email_spec_not_success.json") }
+
+      it 'always returns arrays' do
+        expect(subject.result).to eq("We couldn't find profile with this email")
+        expect(subject.success).to eq(false)
+      end
+    end
   end
 end

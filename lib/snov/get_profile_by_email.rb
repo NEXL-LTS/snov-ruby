@@ -61,7 +61,7 @@ module Snov
       include ActiveModel::Model
 
       attr_accessor :id, :name, :first_name, :last_name, :industry, :country, :locality, :success, :source
-      attr_accessor :logo, :last_update_date, :message
+      attr_accessor :logo, :last_update_date, :message, :result
 
       def social
         Array.wrap(@social)
