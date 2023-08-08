@@ -64,7 +64,7 @@ module Snov
     end
 
     it 'can change folder' do
-      described_class.folder = "#{__dir__}/moved"
+      expect { described_class.folder = "#{__dir__}/moved" }.not_to raise_error
     end
   end
 end

@@ -1,9 +1,9 @@
 RSpec.describe Snov do
   it "has a version number" do
-    expect(Snov::VERSION).not_to be nil
+    expect(Snov::VERSION).not_to be_nil
   end
 
   it "returns client" do
-    described_class.client
+    expect { described_class.client }.not_to raise_error
   end
 end

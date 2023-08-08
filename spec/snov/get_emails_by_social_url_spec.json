@@ -34,7 +34,8 @@
           "size": "1-10",
           "industry": "Entertainment",
           "companyType": "Public Company",
-          "country": "United States"
+          "country": "United States",
+          "hqPhone": "324-3434-222"
         }
       ],
       "previousJob": [
@@ -55,7 +56,8 @@
           "size": "10001+",
           "industry": "Logistics and Supply Chain",
           "companyType": "Public Company",
-          "country": "United States"
+          "country": "United States",
+          "hqPhone": "324-3434-222"
         }
       ],
         "social": [],

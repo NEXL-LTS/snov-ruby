@@ -23,7 +23,7 @@ module Snov
 
       attr_accessor :company_name, :company_type, :position, :social_link, :site, :locality, :state,
                     :city, :street, :street2, :country, :start_date, :end_date, :postal, :founded, :size,
-                    :industry
+                    :industry, :hq_phone
     end
 
     class ProspectJobList
