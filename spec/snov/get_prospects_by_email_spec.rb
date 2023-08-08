@@ -25,11 +25,11 @@ module Snov
 
       it 'always returns arrays' do
         result = subject.first
-        expect(result.social).to be_kind_of(Array)
-        expect(result.current_job).to be_kind_of(Array)
-        expect(result.previous_job).to be_kind_of(Array)
-        expect(result.lists).to be_kind_of(Array)
-        expect(result.campaigns).to be_kind_of(Array)
+        expect(result.social).to be_a(Array)
+        expect(result.current_job).to be_a(Array)
+        expect(result.previous_job).to be_a(Array)
+        expect(result.lists).to be_a(Array)
+        expect(result.campaigns).to be_a(Array)
       end
     end
   end

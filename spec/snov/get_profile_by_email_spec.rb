@@ -15,6 +15,8 @@ module Snov
       it 'returns all' do
         expect(subject).to have_attributes(name: 'Lizi Hamer')
         expect(subject.social.first).to have_attributes(link: 'https://www.linkedin.com/in/lizihamer/')
+        expect(subject.current_jobs).to be_a(Array)
+        expect(subject.previous_jobs).to be_a(Array)
       end
     end
 
@@ -22,9 +24,9 @@ module Snov
       let(:json) { File.read(__dir__ + "/get_profile_by_email_spec_min.json") }
 
       it 'always returns arrays' do
-        expect(subject.social).to be_kind_of(Array)
-        expect(subject.current_jobs).to be_kind_of(Array)
-        expect(subject.previous_jobs).to be_kind_of(Array)
+        expect(subject.social).to be_a(Array)
+        expect(subject.current_jobs).to be_a(Array)
+        expect(subject.previous_jobs).to be_a(Array)
       end
     end
 
@@ -33,7 +35,7 @@ module Snov
 
       it 'always returns arrays' do
         expect(subject.result).to eq("We couldn't find profile with this email")
-        expect(subject.success).to eq(false)
+        expect(subject.success).to be(false)
       end
     end
   end
