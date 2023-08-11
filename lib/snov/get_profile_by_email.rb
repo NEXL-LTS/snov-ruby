@@ -39,10 +39,7 @@ module Snov
 
     class Job
       include ActiveModel::Model
-
-      attr_accessor :company_name, :position, :social_link, :site, :locality, :state, :city
-      attr_accessor :street, :street2, :postal, :founded, :start_date, :end_date, :size
-      attr_accessor :industry, :company_type, :country, :hq_phone
+      include SupportedJobAttributes
     end
 
     class Social
