@@ -18,7 +18,7 @@ module Snov
                             .deep_transform_keys! { |key| key.underscore }
     end
 
-    ProspectJob = CamelSnakeStruct
+    ProspectJob = Class.new(CamelSnakeStruct)
 
     class ProspectJobList
       include ActiveModel::Model

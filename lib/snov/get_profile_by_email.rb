@@ -37,7 +37,7 @@ module Snov
                             .deep_transform_keys! { |key| key.underscore }
     end
 
-    Job = CamelSnakeStruct
+    Job = Class.new(CamelSnakeStruct)
 
     class Social
       include ActiveModel::Model
