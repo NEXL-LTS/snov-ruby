@@ -18,13 +18,7 @@ module Snov
                             .deep_transform_keys! { |key| key.underscore }
     end
 
-    class ProspectJob
-      include ActiveModel::Model
-
-      attr_accessor :company_name, :company_type, :position, :social_link, :site, :locality, :state,
-                    :city, :street, :street2, :country, :start_date, :end_date, :postal, :founded, :size,
-                    :industry, :hq_phone
-    end
+    ProspectJob = Class.new(CamelSnakeStruct)
 
     class ProspectJobList
       include ActiveModel::Model

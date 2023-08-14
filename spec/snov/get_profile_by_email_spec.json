@@ -38,7 +38,8 @@
           "industry": "Marketing and Advertising",
           "companyType": "Public Company",
           "country": "United States",
-          "hqPhone": "233-344-533"
+          "hqPhone": "233-344-533",
+          "hashDomain": "6a9a33540fe4b5bb5dac36f2da85c412"
       },
       {
           "companyName": "SisuGirls",
@@ -58,7 +59,8 @@
           "industry": "Health, Wellness and Fitness",
           "companyType": null,
           "country": "Singapore",
-          "hqPhone": "233-344-533"
+          "hqPhone": "233-344-533",
+          "hashDomain": "6a9a33540fe4b5bb5dac36f2da85c412"
       }
   ],
   "previousJobs": [
@@ -79,7 +81,9 @@
           "size": null,
           "industry": null,
           "companyType": null,
-          "country": null
+          "country": null,
+          "hqPhone": "233-344-533",
+          "hashDomain": "6a9a33540fe4b5bb5dac36f2da85c412"
       },
       {
           "companyName": "Russell Commission",
@@ -98,7 +102,9 @@
           "size": null,
           "industry": null,
           "companyType": null,
-          "country": null
+          "country": null,
+          "hqPhone": "233-344-533",
+          "hashDomain": "6a9a33540fe4b5bb5dac36f2da85c412"
       }
   ],
   "lastUpdateDate": "2018-02-07 10:12:28"
