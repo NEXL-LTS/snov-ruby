@@ -30,10 +30,7 @@ module Snov
                             .deep_transform_keys! { |key| key.underscore }
     end
 
-    class Job
-      include ActiveModel::Model
-      include SupportedJobAttributes
-    end
+    Job = CamelSnakeStruct
 
     class Social
       include ActiveModel::Model

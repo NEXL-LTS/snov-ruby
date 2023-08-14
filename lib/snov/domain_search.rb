@@ -1,5 +1,4 @@
 require 'active_support/core_ext/array'
-require 'camel_snake_struct'
 
 module Snov
   class DomainSearch
