@@ -18,13 +18,16 @@ module Snov
                                   "firstName" => @first_name,
                                   "lastName" => @last_name,
                                   "domain" => @domain)
-                            .deep_transform_keys! { |key| key.underscore }
     end
 
-    class ProspectResult
-      include ActiveModel::Model
-
-      attr_accessor :success, :first_name, :last_name, :domain, :user_id, :sent, :access_token
-    end
+    ProspectResult = Class.new(CamelSnakeStruct)
+    ProspectResult.example(
+      'success' => true,
+      'firstName' => "bapu",
+      'lastName' => "sethi",
+      'domain' => "nexl.io",
+      'userId' => 666871,
+      'sent' => true
+    )
   end
 end
