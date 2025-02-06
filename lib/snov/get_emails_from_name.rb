@@ -25,24 +25,13 @@ module Snov
                             .deep_transform_keys! { |key| key.underscore }
     end
 
-    class ProspectData
-      include ActiveModel::Model
-
-      attr_accessor :first_name, :last_name, :domain, :name
-      attr_reader :emails
-
-      def emails=(val)
-        @emails = Array.wrap(val).map do |rel|
-          ProspectEmail.new(rel)
-        end
-      end
-    end
-
-    class ProspectEmail
-      include ActiveModel::Model
-
-      attr_accessor :email, :email_status
-    end
+    ProspectData = Class.new(CamelSnakeStruct)
+    ProspectData.example(
+      "first_name" => "text",
+      "last_name" => "text",
+      "domain" => "text",
+      "emails" => [{ "email" => "text", "email_status" => "valid" }]
+    )
 
     class ProspectStatus
       include ActiveModel::Model
