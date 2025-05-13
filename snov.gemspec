@@ -24,8 +24,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.add_dependency 'activemodel', '>= 4.1.0', '< 8.0'
-  spec.add_dependency 'activesupport', '>= 4.1.0', '< 8.0'
+  spec.add_dependency 'activemodel', '>= 4.1.0', '< 9.0'
+  spec.add_dependency 'activesupport', '>= 4.1.0', '< 9.0'
   spec.add_dependency 'camel_snake_struct', '>= 0.1.0', '< 2.0'
   spec.add_dependency 'faraday', '>= 0.10.0', '< 3.0'
   spec.add_dependency 'multi_json', '>= 1.4.0', '< 2.0'
